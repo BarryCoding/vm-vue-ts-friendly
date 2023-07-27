@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import fetchCount from '../fetchCount'
+import CounterBar from './CounterBar.vue'
 
 interface Props {
   limit: number
@@ -32,7 +33,7 @@ onMounted(() => {
 
 <template>
   <p>{{ count }}</p>
-  <button @click="addCount(1)">Add</button>
+  <CounterBar @addCount="addCount" @reset="count = 0" />
 </template>
 
 <style scoped></style>
