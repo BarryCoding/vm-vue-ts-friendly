@@ -14,7 +14,14 @@ const appInfo: AppInfo = reactive({
   slogan: 'Learning TS',
 })
 
+const addCount = (num: number) => {
+  if (count.value) {
+    count.value = count.value + num
+  }
+}
+
 onMounted(() => {
+  // inline arrow function: FetchCountCallback
   fetchCount((initCount) => {
     count.value = initCount
   })
@@ -25,6 +32,7 @@ onMounted(() => {
   <h1>{{ appInfo.name }}</h1>
   <h2>{{ appInfo.slogan }}</h2>
   <p>{{ count }}</p>
+  <button @click="addCount(10)">Add</button>
 </template>
 
 <style scoped></style>
